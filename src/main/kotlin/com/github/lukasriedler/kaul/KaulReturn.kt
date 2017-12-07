@@ -1,0 +1,15 @@
+package com.github.lukasriedler.kaul
+
+enum class KaulReturn {
+    NO_UPDATE,
+    UPDATE_AVAILABLE,
+    UPDATE_DOWNLOADED,
+    UPDATE_PREPARED,
+    UPDATE_STARTED,
+    JSON_DOWNLOAD_ERROR,
+    ZIP_DOWNLOAD_ERROR,
+    ZIP_EXTRACT_ERROR,
+    HASH_ERROR,
+    SIGNATURE_ERROR,
+    UPGRADE_ERROR
+}
