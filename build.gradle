@@ -2,12 +2,11 @@ group 'kaul'
 version '0.1'
 
 buildscript {
-    ext.kotlin_version = '1.2.0'
+    ext.kotlin_version = '1.2.10'
 
     repositories {
         mavenCentral()
         jcenter()
-        maven { url "http://dl.bintray.com/jetbrains/spek" }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -35,10 +34,11 @@ dependencies {
     compile "commons-io:commons-io:+"
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.2'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.2'
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.2"
     compile group: 'net.lingala.zip4j', name: 'zip4j', version: '1.3.2'
-    testCompile("org.jetbrains.spek:spek-api:1.1.5")
+    testCompile "org.jetbrains.spek:spek-api:1.1.5"
     testCompile "com.winterbe:expekt:0.5.0"
-    testRuntime("org.jetbrains.spek:spek-junit-platform-engine:1.1.5")
+    testRuntime "org.jetbrains.spek:spek-junit-platform-engine:1.1.5"
 }
 
 compileKotlin {
@@ -51,7 +51,9 @@ compileTestKotlin {
 jar {
     manifest {
         attributes 'library-name': 'com.github.lukasriedler.Kaul'
-        attributes 'library-version': '0.1'
-        attributes 'update-version': '0.1'
+        attributes 'library-version': version
+        attributes 'application-name': '0.1'
+        attributes 'application-version': '0.1'
+        attributes 'json-location': 'https://download.com/application/application-manifest.json'
     }
 }
